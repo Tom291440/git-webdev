@@ -13,6 +13,7 @@
       vars:
         packages:
         - git
+        - yarn
     - git:
         repo: https://github.com/{{ repo_name }}.git
         dest: "{{ repo_folder }}"
