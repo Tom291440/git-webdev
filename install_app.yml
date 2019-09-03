@@ -7,11 +7,17 @@
     live_folder: /var/www/
     repo_name: gothinkster/react-redux-realworld-example-app
   tasks:
+    - name: Install dev dependencies
+      yum:
+        name: "{{ packages }}"
+      vars:
+        packages:
+        - git
     - git:
         repo: ssh://git@github.com/{{ repo_name }}.git
         dest: "{{ repo_folder }}"
         update: yes
-    - name: Install dependencies
+    - name: Install js dependencies
       yarn:
         path: "{{ repo_folder }}"
     - name: Build project
