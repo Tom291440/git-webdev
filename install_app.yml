@@ -1,0 +1,24 @@
+---
+- name: Deploy React App Front-end Build
+  gather_facts: false
+  hosts: all
+  vars:
+    repo_folder: /var/www/github-deployment/repos/
+    live_folder: /var/www/
+    repo_name: gothinkster/react-redux-realworld-example-app
+  tasks:
+    - git:
+        repo: ssh://git@github.com/{{ repo_name }}.git
+        dest: "{{ repo_folder }}"
+        update: yes
+    - name: Install dependencies
+      yarn:
+        path: "{{ repo_folder }}"
+    - name: Build project
+      command: yarn build
+      args:
+        chdir: "{{ repo_folder }}"
+    - name: Copy build to live directory
+      command: cp -TRv build {{ live_folder }}
+      args:
+        chdir: "{{ repo_folder }}"
