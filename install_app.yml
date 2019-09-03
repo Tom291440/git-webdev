@@ -12,6 +12,7 @@
         name: "{{ packages }}"
       vars:
         packages:
+        - epel-release
         - git
         - yarn
     - git:
