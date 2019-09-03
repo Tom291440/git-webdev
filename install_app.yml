@@ -12,9 +12,8 @@
         name: "{{ packages }}"
       vars:
         packages:
-        - epel-release
         - git
-        - yarn
+        - nodejs
     - git:
         repo: https://github.com/{{ repo_name }}.git
         dest: "{{ repo_folder }}"
