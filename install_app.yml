@@ -14,7 +14,7 @@
         packages:
         - git
     - git:
-        repo: ssh://git@github.com/{{ repo_name }}.git
+        repo: https://github.com/{{ repo_name }}.git
         dest: "{{ repo_folder }}"
         update: yes
     - name: Install js dependencies
