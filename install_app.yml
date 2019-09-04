@@ -5,7 +5,7 @@
   vars:
     repo_folder: /var/www/github-deployment/repos/
     live_folder: /var/www/
-    var_node: /tmp
+    node_install_folder: /tmp
     repo_name: gothinkster/react-redux-realworld-example-app
   tasks:
     - name: Install git
@@ -14,17 +14,17 @@
     - name: Node.js - Get script
       get_url:
         url: "https://rpm.nodesource.com/setup_10.x"
-        dest: "{{ var_node }}/nodejs.sh"
+        dest: "{{ node_install_folder }}/nodejs.sh"
         force: yes
     - name: Node.js - Set execution permission to script
       file:
-        path: "{{ var_node }}/nodejs.sh"
+        path: "{{ node_install_folder }}/nodejs.sh"
         mode: "u+x"
     - name: Node.js - Execute installation script
-      shell: "{{ var_node }}/nodejs.sh"
+      shell: "{{ node_install_folder }}/nodejs.sh"
     - name: Node.js - Remove installation script
       file:
-        path: "{{ var_node}}/nodejs.sh"
+        path: "{{ node_install_folder }}/nodejs.sh"
         state: absent
     - name: Node.js - Install Node.js compilation tools
       yum:
