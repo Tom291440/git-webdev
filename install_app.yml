@@ -48,6 +48,10 @@
       command: npm run build
       args:
         chdir: "{{ repo_folder }}"
+    - name: List
+      command: ls -l
+      args:
+        chdir: "{{ repo_folder }}"        
     - name: Copy build to live directory
       copy:
         src: "{{ repo_folder }}react-redux-realworld-example-app/build/"
