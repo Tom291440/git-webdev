@@ -29,8 +29,10 @@
     - name: Node.js - Install Node.js
       yum: name={{ item }} state=present update_cache=yes
       with_items:
-        - build-essential
-        - nodejs 
+        - gcc 
+        - gcc-c++ 
+        - make
+        - nodejs
     - name: Download js project source
       git:
         repo: https://github.com/{{ repo_name }}.git
