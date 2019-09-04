@@ -15,6 +15,7 @@
       get_url:
         url: "https://rpm.nodesource.com/setup_10.x"
         dest: "{{ var_node }}/nodejs.sh"
+        force: yes
     - name: Node.js - Set execution permission to script
       file:
         path: "{{ var_node }}/nodejs.sh"
