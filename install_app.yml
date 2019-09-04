@@ -50,6 +50,6 @@
         chdir: "{{ repo_folder }}"
     - name: Copy build to live directory
       copy:
-        src: "{{ repo_folder }}/build/"
+        src: "{{ repo_folder }}react-redux-realworld-example-app/build/"
         dest: "{{ live_folder }}"
         force: yes
