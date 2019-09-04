@@ -5,6 +5,7 @@
   vars:
     repo_folder: /var/www/github-deployment/repos/
     live_folder: /var/www/
+    var_node: /tmp
     repo_name: gothinkster/react-redux-realworld-example-app
   tasks:
     - name: Install git
