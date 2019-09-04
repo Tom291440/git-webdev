@@ -49,6 +49,7 @@
       args:
         chdir: "{{ repo_folder }}"
     - name: Copy build to live directory
-      command: cp -TRv build {{ live_folder }}
-      args:
-        chdir: "{{ repo_folder }}"
+      copy:
+        src: "{{ repo_folder }}/build/"
+        dest: "{{ live_folder }}"
+        force: yes
