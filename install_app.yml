@@ -52,4 +52,5 @@
       copy:
         src: "{{ repo_folder }}react-redux-realworld-example-app/build/"
         dest: "{{ live_folder }}"
+        remote_src: yes
         force: yes
