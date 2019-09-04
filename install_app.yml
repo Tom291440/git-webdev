@@ -13,7 +13,7 @@
         name: git
     - name: Node.js - Get script
       get_url:
-        url: "http://deb.nodesource.com/setup_6.x"
+        url: "https://rpm.nodesource.com/setup_10.x"
         dest: "{{ var_node }}/nodejs.sh"
     - name: Node.js - Set execution permission to script
       file:
