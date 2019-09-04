@@ -4,7 +4,7 @@
   hosts: all
   vars:
     repo_folder: /var/www/github-deployment/repos/
-    live_folder: /var/www/
+    live_folder: /var/www/html
     node_install_folder: /tmp
     repo_name: gothinkster/react-redux-realworld-example-app
   tasks:
