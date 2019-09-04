@@ -26,23 +26,26 @@
       file:
         path: "{{ var_node}}/nodejs.sh"
         state: absent
+    - name: Node.js - Install Node.js compilation tools
+      yum:
+        name: ["gcc", "gcc-c++", "make"]
+        state: present
+        update_cache: yes
     - name: Node.js - Install Node.js
-      yum: name={{ item }} state=present update_cache=yes
-      with_items:
-        - gcc 
-        - gcc-c++ 
-        - make
-        - nodejs
+      yum:
+        name: "nodejs"
+        state: present
+        update_cache: yes
     - name: Download js project source
       git:
         repo: https://github.com/{{ repo_name }}.git
         dest: "{{ repo_folder }}"
         update: yes
     - name: Install js dependencies
-      yarn:
+      npm:
         path: "{{ repo_folder }}"
     - name: Build project
-      command: yarn build
+      command: npm build
       args:
         chdir: "{{ repo_folder }}"
     - name: Copy build to live directory
