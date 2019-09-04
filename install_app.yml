@@ -45,7 +45,7 @@
       npm:
         path: "{{ repo_folder }}"
     - name: Build project
-      command: npm build
+      command: npm run build
       args:
         chdir: "{{ repo_folder }}"
     - name: Copy build to live directory
